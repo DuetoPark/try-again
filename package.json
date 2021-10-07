@@ -1,0 +1,25 @@
+{
+  "name": "09-neneb-neneneb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "node-sass -wr ./styles/main.scss ./style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DuetoPark/neneb-neneneb.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DuetoPark/neneb-neneneb/issues"
+  },
+  "homepage": "https://github.com/DuetoPark/neneb-neneneb#readme",
+  "dependencies": {
+    "node-sass": "^6.0.1",
+    "sass-lint": "^1.13.1"
+  }
+}
