@@ -31,7 +31,7 @@ $lg-max-width: ($lg-unit + $gutter) * $lg-columns;
     }
   }
 
-  @media screen and (min-width: $md-breakpoint) {
+  @include responsive(T) {
     max-width: $md-max-width;
     padding: 0 $md-margin;
 
@@ -42,7 +42,7 @@ $lg-max-width: ($lg-unit + $gutter) * $lg-columns;
     }
   }
 
-  @media screen and (min-width: $lg-breakpoint) {
+  @include responsive(D) {
     max-width: $lg-max-width;
     padding: 0;
 
