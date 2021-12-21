@@ -1,4 +1,4 @@
-# :muscle: neneb-neneneb
+# :muscle: try-again
 
 ## :alien: 목표
 - 강의 복습
