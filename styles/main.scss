@@ -1,6 +1,8 @@
 @import './constants/color';
 @import './constants/typography';
 @import './constants/breakpoints';
+@import './constants/z-indexes';
+@import './constants/dimensions';
 
 @import './base/fonts';
 @import './base/normalize';
@@ -22,4 +24,11 @@
 @import './modules/pagination';
 @import './modules/forms';
 
+@import './components/gnb-icon-button';
+@import './components/gnb-nav';
+@import './components/gnb-search';
+@import './components/gnb-my-menu';
+
 @import './layouts/grids';
+@import './layouts/global-header';
+@import './layouts/gnb';

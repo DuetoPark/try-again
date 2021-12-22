@@ -1,0 +1,11 @@
+.global-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: $global-header-level;
+
+  .gnb {
+    position: relative;
+    z-index: $gnb-level;
+  }
+}

@@ -1,0 +1,105 @@
+.gnb {
+  width: 100%;
+  background-color: $white;
+  border-bottom: 1px solid $border;
+
+  &-wrapper {
+    @include flexbox(between);
+    position: relative;
+    height: $gnb-height-sm - 1px;
+  }
+
+  &-left {
+    .logo {
+      @include pos-center;
+      @include flexbox;
+
+      a {
+        display: block;
+        padding: $padding;
+      }
+
+      img {
+        display: block;
+        width: auto;
+        height: 20px;
+      }
+    }
+  }
+
+  &-right {
+    .button-group {
+      @include flexbox(end);
+
+      .gnb-icon-button.is-search {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  @include responsive(T) {
+    &-wrapper {
+      height: $gnb-height-md - 1px;
+    }
+
+    &-left {
+      @include flexbox(start);
+
+      .logo {
+        position: static;
+        margin-left: -#{$padding};
+        transform: none;
+
+        img {
+          height: 24px;
+        }
+      }
+
+      .gnb-nav {
+        margin-left: 32px;
+      }
+    }
+
+    &-right {
+      @include flexbox(end);
+
+      .button-group {
+        margin: 0 24px;
+
+        .gnb-icon-button {
+          margin-right: 8px !important;
+        }
+
+        .gnb-auth {
+          @include flexbox(start);
+
+          a {
+            @include text-style(14, $secondary);
+            font-weight: 700;
+            white-space: nowrap;
+
+            &:first-child {
+              margin-right: 12px;
+            }
+
+            &:hover {
+              color: $blue;
+            }
+          }
+        }
+      }
+
+      .btn-primary {
+        width: 88px;
+        padding-right: 6.5px;
+        padding-left: 13.5px;
+        white-space: nowrap;
+
+        i {
+          margin-left: 4px;
+          font-size: 20px;
+        }
+      }
+    }
+  }
+}
