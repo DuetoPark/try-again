@@ -1,26 +1,42 @@
 $font-main: 'Noto Sans KR', sans-serif;
 $font-price: 'Tahoma', sans-serif;
 
-$font-size-12: 12px;
-$line-height-12: 16px;
+$font-size: (
+  12: 0.75rem,
+  13: 0.8125rem,
+  14: 0.875rem,
+  16: 1rem,
+  18: 1.125rem,
+  20: 1.25rem,
+  24: 1.5rem,
+  28: 1.75rem,
+  34: 2.125rem,
+);
+
+@function _map-font-size($input-size) {
+  @return map-get($font-size, $input-size);
+}
+
+$font-size-12: _map-font-size(12);
+$line-height-12: _map-font-size(16);
 $letter-spacing-12: -0.005em;
 
-$font-size-13: 13px;
-$line-height-13: 20px;
+$font-size-13: _map-font-size(13);
+$line-height-13: _map-font-size(20);
 $letter-spacing-13: -0.01em;
 
-$font-size-14: 14px;
-$line-height-14: 24px;
+$font-size-14: _map-font-size(14);
+$line-height-14: _map-font-size(24);
 $letter-spacing-14: -0.01em;
 
-$font-size-16: 16px;
-$line-height-16: 24px;
+$font-size-16: _map-font-size(16);
+$line-height-16: _map-font-size(24);
 $letter-spacing-16: -0.01em;
 
-$font-size-18: 18px;
-$line-height-18: 28px;
+$font-size-18: _map-font-size(18);
+$line-height-18: _map-font-size(28);
 $letter-spacing-18: -0.02em;
 
-$font-size-24: 24px;
-$line-height-24: 34px;
+$font-size-24: _map-font-size(24);
+$line-height-24: _map-font-size(34);
 $letter-spacing-24: -0.01em;
