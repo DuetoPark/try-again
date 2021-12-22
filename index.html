@@ -44,7 +44,7 @@
                       <li class="gnb-nav-item">
                         <a href="./index.html">커뮤니티</a>
                       </li>
-                      <li class="gnb-nav-item">
+                      <li class="gnb-nav-item is-active">
                         <a href="./index.html">스토어</a>
                       </li>
                       <li class="gnb-nav-item">
@@ -161,12 +161,15 @@
                       <button
                         class="my-menu-button"
                         type="button"
-                        aria-label="듀트팍님의 프로필로 이동"
+                        aria-label="듀트팍님의 마이메뉴 열기"
                       >
-                        <img
-                          src="./assets/images/img-user-01.jpg"
-                          alt="사달라 아저씨"
-                        />
+                        <div class="avatar">
+                          <img
+                            src="./assets/images/img-user-01.jpg"
+                            alt="사달라 아저씨"
+                          />
+                        </div>
+                        <i class="ic-caret" aria-hidden="true"></i>
                       </button>
 
                       <div class="my-menu-dropdown">
@@ -181,6 +184,15 @@
                             <a href="./index.html">이벤트</a>
                           </li>
                           <li class="my-menu-item">
+                            <a href="./index.html">전문가 신청</a>
+                          </li>
+                          <li class="my-menu-item">
+                            <a href="./index.html">판매자 신청</a>
+                          </li>
+                          <li class="my-menu-item">
+                            <a href="./index.html">고객센터</a>
+                          </li>
+                          <li class="my-menu-item">
                             <button type="button">로그아웃</button>
                           </li>
                         </ol>
@@ -189,7 +201,7 @@
                   </div>
 
                   <!-- NOTE: 로그인을 하지 않은 경우 -->
-                  <div class="button-group">
+                  <!-- <div class="button-group">
                     <button
                       class="gnb-icon-button is-search lg-hidden"
                       type="button"
@@ -210,9 +222,9 @@
                       <a href="./index.html">로그인</a>
                       <a href="./index.html">회원가입</a>
                     </div>
-                  </div>
+                  </div> -->
 
-                  <button class="btn-primary btn-40" type="button">
+                  <button class="btn-primary btn-40 sm-hidden" type="button">
                     글쓰기
                     <i class="ic-chevron" aria-hidden="true"></i>
                   </button>
