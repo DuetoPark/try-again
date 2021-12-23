@@ -1,0 +1,56 @@
+.lnb {
+  @include no-scrollbar;
+  width: 100%;
+  overflow-x: auto;
+  background-color: $white;
+  border-bottom: 1px solid $border;
+
+  &-list {
+    @include inline-flexbox(start);
+    margin-left: -#{$padding};
+  }
+
+  &-item {
+    &.is-active {
+      a {
+        color: $blue;
+        border-bottom-color: $blue;
+      }
+    }
+
+    a {
+      @include flexbox(start);
+      @include text-style(13, $dark);
+      height: $lnb-heidht-sm - 1px;
+      padding: 0 $padding;
+      font-weight: 700;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 250ms ease-in-out;
+
+      &:hover {
+        color: $blue;
+      }
+
+      .badge {
+        font-size: 16px;
+        color: $red;
+      }
+    }
+  }
+
+  @include responsive(T) {
+    overflow-x: visible;
+
+    &-list {
+      margin-left: 0;
+    }
+
+    &-item {
+      a {
+        @include text-style(14);
+        height: $lnb-heidht-md - 1px;
+      }
+    }
+  }
+}

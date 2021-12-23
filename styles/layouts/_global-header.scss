@@ -8,4 +8,9 @@
     position: relative;
     z-index: $gnb-level;
   }
+
+  .lnb {
+    position: relative;
+    z-index: $lnb-level;
+  }
 }
