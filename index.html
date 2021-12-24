@@ -34,7 +34,7 @@
                 <div class="gnb-left">
                   <h1 class="logo">
                     <a href="./index.html">
-                      <img src="./assets/images/Logo.svg" alt="오늘의 집" />
+                      <img src="./assets/images/Logo.svg" alt="내일의 집" />
                     </a>
                   </h1>
 
@@ -343,6 +343,246 @@
       </div>
     </footer>
 
-    <div class="overlay is-active" aria-hidden="true"></div>
+    <aside class="sidebar">
+      <header class="sidebar-header">
+        <h1 class="logo">
+          <a href="./index.html">
+            <img src="./assets/images/Logo.svg" alt="내일의 집" />
+          </a>
+        </h1>
+
+        <!-- NOTE: 로그인을 한 경우 -->
+        <div class="sidebar-user">
+          <a href="./index.html" aria-label="듀트팍님의 프로필로 이동">
+            <div class="avatar-24">
+              <img src="./assets/images/img-user-01.jpg" alt="사달라 아저씨" />
+            </div>
+
+            <strong class="user-name">듀트팍</strong>
+          </a>
+        </div>
+
+        <!-- NOTE: 로그인을 하지 않은 경우 -->
+        <div class="sidebar-auth">
+          <a class="btn-outlined btn-40" href="./index.html">로그인</a>
+          <a class="btn-primary btn-40" href="/index.html">회원가입</a>
+        </div>
+      </header>
+
+      <nav class="sidebar-nav">
+        <h2 class="visually-hidden">메뉴</h2>
+
+        <div class="drawer-menu is-community">
+          <button
+            class="drawer-menu-button"
+            type="button"
+            aria-label="커뮤니티 메뉴 열기"
+          >
+            <i class="ic-community" aria-hidden="true"></i>
+            커뮤니티
+            <i class="ic-chevron" aria-hidden="true"></i>
+          </button>
+
+          <div class="drawer-menu-content">
+            <ul class="drawer-menu-list">
+              <li class="drawer-menu-item">
+                <a href="./index.html">홈</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">
+                  팔로잉
+                  <strong class="new" aria-label="새 상품">
+                    <i class="ic-new" aria-hidden="true"></i>
+                  </strong>
+                </a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">사진</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">집들이</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">노하우</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">전문가집들이</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">셀프가이드</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">질문과답변</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">이벤트</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="drawer-menu is-store">
+          <button
+            class="drawer-menu-button"
+            type="button"
+            aria-label="스토어 메뉴 열기"
+          >
+            <i class="ic-store" aria-hidden="true"></i>
+            스토어
+            <i class="ic-chevron" aria-hidden="true"></i>
+          </button>
+
+          <div class="drawer-menu-content">
+            <ul class="drawer-menu-list">
+              <li class="drawer-menu-item">
+                <a href="./index.html">스토어홈</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">카테고리</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">베스트</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">오늘의딜</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">
+                  시즌오프
+                  <strong class="new" aria-label="새 상품">
+                    <i class="ic-new" aria-hidden="true"></i>
+                  </strong>
+                </a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">
+                  페브릭빅세일
+                  <strong class="new" aria-label="새 상품">
+                    <i class="ic-new" aria-hidden="true"></i>
+                  </strong>
+                </a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">리퍼마켓</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">지저일배송</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">
+                  프리미엄
+                  <strong class="new" aria-label="새 상품">
+                    <i class="ic-new" aria-hidden="true"></i>
+                  </strong>
+                </a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">기획전</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="drawer-menu is-expert">
+          <button
+            class="drawer-menu-button"
+            type="button"
+            aria-label="인테리어시공 메뉴 열기"
+          >
+            <i class="ic-expert" aria-hidden="true"></i>
+            인테리어시공
+            <i class="ic-chevron" aria-hidden="true"></i>
+          </button>
+
+          <div class="drawer-menu-content">
+            <ul class="drawer-menu-list">
+              <li class="drawer-menu-item">
+                <a href="./index.html">업체찾기</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">간편상담</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">견적계산</a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">
+                  이사
+                  <strong class="new" aria-label="새 상품">
+                    <i class="ic-new" aria-hidden="true"></i>
+                  </strong>
+                </a>
+              </li>
+              <li class="drawer-menu-item">
+                <a href="./index.html">설치/수리</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- NOTE: 로그인을 한 경우 -->
+        <div class="user-menu">
+          <ul class="user-menu-list">
+            <li class="user-menu-item">
+              <a href="./index.html">마이페이지</a>
+            </li>
+            <li class="user-menu-item">
+              <a href="./index.html">나의 쇼핑</a>
+            </li>
+            <li class="user-menu-item">
+              <a href="./index.html">스크랩북</a>
+            </li>
+            <li class="user-menu-item">
+              <a href="./index.html">
+                알림
+                <strong class="badge">1</strong>
+              </a>
+            </li>
+            <li class="user-menu-item">
+              <a href="./index.html">이벤트</a>
+            </li>
+            <li class="user-menu-item">
+              <a href="./index.html">
+                사진 올리기
+                <strong class="new" aria-label="새 상품">
+                  <i class="ic-new" aria-hidden="true"></i>
+                </strong>
+              </a>
+            </li>
+            <li class="user-menu-item">
+              <a href="./index.html">집들이 글쓰기</a>
+            </li>
+            <li class="user-menu-item">
+              <a href="./index.html">노하우 글쓰기</a>
+            </li>
+            <li class="user-menu-item">
+              <a href="./index.html">상품 리뷰 쓰기</a>
+            </li>
+            <li class="user-menu-item">
+              <a href="./index.html">시공 전문가 리뷰 쓰기</a>
+            </li>
+            <li class="user-menu-item">
+              <a href="./index.html">인테리어 질문하기</a>
+            </li>
+            <li class="user-menu-item">
+              <a href="./index.html">고객센터</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <footer class="sidebar-footer">
+        <!-- NOTE: 로그인을 한 경우 -->
+        <a href="./index.html">전문가 신청</a>
+        <a href="./index.html">판매자 신청</a>
+        <button type="button">로그아웃</button>
+
+        <!-- NOTE: 로그인을 하지 않은 경우 -->
+        <a href="./index.html">전문가 신청</a>
+        <a href="./index.html">판매자 신청</a>
+      </footer>
+    </aside>
+
+    <div class="overlay" aria-hidden="true"></div>
   </body>
 </html>
