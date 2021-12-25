@@ -1,0 +1,53 @@
+.order-form {
+  .order-inputs,
+  .order-checkouts {
+    margin-bottom: 10px;
+  }
+
+  .order-inputs {
+    .select-group {
+      margin-bottom: 10px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .order-checkouts {
+    .checkout-list {
+      @include column-flexbox;
+      flex-direction: column-reverse;
+    }
+
+    .checkout-item {
+      width: 100%;
+      margin-bottom: 8px;
+
+      &:first-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .order-summary {
+    @include flexbox(between);
+    padding-top: 10px;
+    margin-bottom: 20px;
+
+    dt {
+      @include text-style(13, $dark);
+      font-weight: 700;
+    }
+  }
+
+  .button-group {
+    @include flexbox(start);
+    width: 100%;
+
+    .btn-48 {
+      width: 50%;
+      margin: 0 4px;
+    }
+  }
+}

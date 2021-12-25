@@ -30,6 +30,8 @@
 @import './components/gnb-my-menu';
 @import './components/sidebar-drawer-menu';
 @import './components/search-history';
+@import './components/order-form';
+@import './components/order-form-checkout-card';
 
 @import './layouts/grids';
 @import './layouts/overlay';
@@ -39,3 +41,4 @@
 @import './layouts/global-footer';
 @import './layouts/sidebar';
 @import './layouts/search-modal';
+@import './layouts/order-form-modal';

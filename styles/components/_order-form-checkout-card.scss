@@ -1,0 +1,88 @@
+.checkout-card {
+  $button-size: 32px;
+
+  position: relative;
+  padding: 8px;
+  background-color: $background;
+  border-radius: 4px;
+
+  .checkout-header {
+    margin-bottom: 8px;
+
+    .title {
+      @include text-style(13, $primary);
+      margin-right: 26px;
+      font-weight: 400;
+    }
+
+    .delete-button {
+      @include flexbox;
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: $button-size;
+      height: $button-size;
+      font-size: 20px;
+      color: $secondary;
+      transition: color 250ms ease-in-out;
+
+      &:hover,
+      &:active {
+        color: $tertiary;
+      }
+    }
+  }
+
+  .checkout-footer {
+    @include flexbox(between);
+
+    .checkout-select {
+      position: relative;
+
+      &:hover {
+        select {
+          border-color: $secondary;
+        }
+
+        .ic-caret {
+          color: $primary;
+        }
+      }
+
+      select {
+        @include text-style(14, $primary);
+        width: 72px;
+        height: 24px;
+        padding-right: 22px;
+        padding-left: 8px;
+        font-weight: 400;
+        line-height: 1;
+        cursor: pointer;
+        background-color: $white;
+        border: 1px solid $border;
+        border-radius: 3px;
+        transition: border-color 250ms ease-in-out;
+        appearance: none;
+      }
+
+      .ic-caret {
+        @include pos-center-y;
+        right: 0;
+        font-size: 20px;
+        color: $tertiary;
+        pointer-events: none;
+        transition: color 250ms ease-in-out;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    .checkout-header {
+      margin-bottom: 8px;
+
+      .title {
+        @include text-style(16, $primary);
+      }
+    }
+  }
+}

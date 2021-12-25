@@ -1,0 +1,33 @@
+.order-form-modal {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: $order-form-modal-level;
+  width: 100vw;
+  padding-top: 15px;
+  padding-bottom: 4px;
+  background-color: $white;
+  border-radius: 12px 12px 0 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  box-shadow: 0 -4px 20px rgba($black, 0.15);
+  transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out,
+    transform 250ms ease-in-out;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .order-checkouts {
+    @include no-scrollbar;
+    max-height: 45vh;
+    overflow-y: auto;
+  }
+
+  @include responsive(T) {
+    padding-top: 32px;
+  }
+}
