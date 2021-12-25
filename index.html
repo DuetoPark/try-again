@@ -300,6 +300,32 @@
       </nav>
     </header>
 
+    <main>
+      <div class="order-cta lg-hidden">
+        <!-- NOTE: 스크랩을 하지 않은 경우 -->
+        <button
+          class="btn-48 btn-ghost"
+          type="button"
+          aria-label="스크랩 18302건"
+        >
+          <i class="ic-bookmark" aria-hidden="true"></i>
+          <strong class="count">18,302</strong>
+        </button>
+
+        <!-- NOTE: 스크랩을 한 경우 -->
+        <!-- <button
+          class="btn-48 btn-ghost"
+          type="button"
+          aria-label="스크랩 18303건"
+        >
+          <i class="ic-bookmarkFilled" aria-hidden="true"></i>
+          <strong class="count">18,303</strong>
+        </button> -->
+
+        <button class="btn-primary btn-48" type="button">구매하기</button>
+      </div>
+    </main>
+
     <footer class="global-footer">
       <div class="container">
         <div class="row">
@@ -668,7 +694,7 @@
       </div>
     </aside>
 
-    <aside class="order-form-modal is-active lg-hidden">
+    <aside class="order-form-modal lg-hidden">
       <h1 class="visually-hidden">주문창</h1>
 
       <form class="order-form" action="post">
@@ -833,6 +859,6 @@
       </form>
     </aside>
 
-    <div class="overlay is-active" aria-hidden="true"></div>
+    <div class="overlay" aria-hidden="true"></div>
   </body>
 </html>
