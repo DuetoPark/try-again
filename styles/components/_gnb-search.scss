@@ -11,13 +11,15 @@
 
   .search-history {
     position: absolute;
-    top: calc(100% + 8px);
+    bottom: 0;
     left: 0;
+    z-index: $search-history-level;
     display: none;
     padding: 8px;
     background-color: $white;
     border: 1px solid $border;
     border-radius: 4px;
+    transform: translateY(calc(100% + 4px));
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.18);
 
     &.is-active {
@@ -25,55 +27,7 @@
     }
 
     &-header {
-      @include flexbox(between);
-      padding: 0 8px;
-
-      .title,
-      button {
-        @include text-style(13, $secondary);
-        font-weight: 400;
-      }
-
-      button {
-        padding: 8px;
-        margin-right: -8px;
-      }
-    }
-
-    &-item {
-      position: relative;
-      border-radius: 2px;
-
-      &:hover {
-        background-color: $background;
-      }
-
-      .word-button {
-        @include text-style(16, $primary);
-        display: block;
-        width: 100%;
-        padding: 10px $close-button-size 10px 8px;
-        overflow: hidden;
-        text-align: left;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-
-      .delete-button {
-        @include flexbox;
-        position: absolute;
-        top: 6px;
-        right: 0;
-        display: block;
-        width: $close-button-size;
-        height: $close-button-size;
-        font-size: 16px;
-        color: $tertiary;
-
-        &:hover {
-          color: $primary;
-        }
-      }
+      margin: 0 8px;
     }
   }
 }
