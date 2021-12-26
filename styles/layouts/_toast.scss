@@ -1,0 +1,113 @@
+.toast {
+  $button-size-sm: 36px;
+  $button-size-md: 40px;
+
+  @include pos-center-x(fixed);
+  bottom: 0;
+  z-index: $toast-level;
+  display: none;
+  width: 100vw;
+
+  &.is-active {
+    display: block;
+  }
+
+  .toast-card-item {
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .toast-card {
+    @include flexbox(between);
+    width: 100%;
+    padding: 12px;
+    padding-left: 0 !important;
+    background-color: $white;
+    box-shadow: 0 -4px 20px rgba(63, 65, 80, 0.3);
+
+    &-header {
+      @include flexbox(end);
+      flex-direction: row-reverse;
+      flex-grow: 1;
+
+      .title {
+        @include text-style(13, $primary);
+        font-weight: 400;
+      }
+
+      .delete-button {
+        @include flexbox;
+        flex-grow: 0;
+        flex-shrink: 0;
+        width: $button-size-sm;
+        height: $button-size-sm;
+        font-size: 20px;
+        color: $tertiary;
+        transition: color 250ms ease-in-out;
+
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+
+    &-footer {
+      @include flexbox(start);
+      flex-wrap: wrap;
+
+      a,
+      button {
+        @include text-style(13);
+        white-space: nowrap;
+      }
+
+      .btn-outlined {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  @include responsive(D) {
+    bottom: 40px;
+    width: 480px;
+
+    .toast-card {
+      @include flexbox(between);
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 20px rgba(63, 65, 80, 0.3);
+
+      &-header {
+        .title {
+          @include text-style(16);
+        }
+
+        .delete-button {
+          width: $button-size-md;
+          height: $button-size-md;
+          margin: 0 8px;
+          font-size: 24px;
+        }
+      }
+
+      &-footer {
+        a,
+        button {
+          @include text-style(14);
+        }
+
+        .btn-outlined {
+          width: 112px;
+          margin-right: 8px;
+        }
+
+        .btn-primary {
+          width: 100px;
+        }
+      }
+    }
+  }
+}
