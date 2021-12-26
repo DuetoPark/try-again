@@ -14,9 +14,20 @@
 
   .toast-card-item {
     margin-bottom: 8px;
+    animation-duration: 250ms;
+    animation-name: fade-in;
+    animation-timing-function: ease-in-out;
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    &.is-pushed {
+      animation-name: pushed;
+    }
+
+    &.is-removed {
+      animation-name: fade-out;
     }
   }
 
@@ -109,5 +120,39 @@
         }
       }
     }
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes pushed {
+  0% {
+    transform: translate3d(0, 100%, 0);
+  }
+
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
   }
 }
