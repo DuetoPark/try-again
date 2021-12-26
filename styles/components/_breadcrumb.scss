@@ -1,0 +1,67 @@
+.breadcrumb {
+  $breadcrumb-item-margin-md: 4px;
+
+  &-list {
+    @include flexbox(start);
+    flex-wrap: wrap;
+    padding: 10px 0;
+    margin-left: -#{$padding};
+  }
+
+  &-item {
+    position: relative;
+
+    a {
+      @include text-style(13, $secondary);
+      padding: $padding;
+      font-weight: 400;
+      transition: opacity 250ms ease-in-out;
+
+      &:active {
+        opacity: 0.5;
+      }
+    }
+
+    .ic-chevron {
+      @include pos-center-y;
+      right: 0;
+      display: inline-block;
+      font-size: 12;
+      color: $tertiary;
+      pointer-events: none;
+      transform: translate3d(50%, -50%, 0) rotate(-90deg);
+    }
+  }
+
+  @include responsive(T) {
+    &-list {
+      padding: 16px 0;
+    }
+
+    &-item {
+      margin-right: $breadcrumb-item-margin-md;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      a {
+        @include text-style(14);
+      }
+
+      .ic-chevron {
+        right: -#{$breadcrumb-item-margin-md / 2};
+      }
+    }
+  }
+
+  @include responsive(D) {
+    &-list {
+      padding: 24px 0 40px 0;
+
+      a:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+}
