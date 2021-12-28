@@ -15,10 +15,11 @@
     margin-bottom: 16px;
     font-weight: 700;
 
-    .info-brand {
+    .info-brand,
+    .info-review .badge {
       transition: opacity 250ms ease-in-out;
 
-      &:hover {
+      &:active {
         opacity: 0.5;
       }
     }
@@ -57,6 +58,13 @@
     padding: 0;
 
     &-header {
+      .info-brand,
+      .info-review .badge {
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+
       .info-brand {
         margin-bottom: 8px;
       }
