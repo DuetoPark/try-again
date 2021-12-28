@@ -525,10 +525,66 @@
               </div>
 
               <div class="product-delivery">
-                일반택배
+                <span>일반택배</span>
                 <strong class="tag-gray">무료배송</strong>
               </div>
             </section>
+
+            <form class="order-form lg-only" action="post">
+              <div class="order-inputs">
+                <div class="select-group is-active">
+                  <select
+                    class="form-select"
+                    id="product-info-order-form-select-1"
+                    required
+                  >
+                    <option value="">사이즈 선택</option>
+                    <option value="1">선택사항 1</option>
+                    <option value="2">선택사항 2</option>
+                    <option value="3">선택사항 3</option>
+                  </select>
+                  <i class="ic-caret" aria-hidden="true"></i>
+                </div>
+
+                <div class="select-group">
+                  <select
+                    class="form-select"
+                    id="product-info-order-form-select-2"
+                  >
+                    <option value="">추가상품 (선택)</option>
+                    <option value="mandarin">
+                      추가상품 - 맛있는 제주 감귤을 직배송 / 제주도 귤 판매 1위
+                      믿고 구매하세요.
+                    </option>
+                  </select>
+                  <i class="ic-caret" aria-hidden="true"></i>
+                </div>
+              </div>
+
+              <dl class="order-summary">
+                <dt>주문금액</dt>
+                <dd>
+                  <output
+                    name="price"
+                    for="product-info-order-form-select-1 product-info-order-form-select-2"
+                  >
+                    <div class="price-20">
+                      <strong class="amount">0</strong>
+                      <span class="currency">원</span>
+                    </div>
+                  </output>
+                </dd>
+              </dl>
+
+              <div class="button-group">
+                <button class="btn-55 btn-outlined" type="button">
+                  장바구니
+                </button>
+                <button class="btn-55 btn-primary" type="submit">
+                  바로구매
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
