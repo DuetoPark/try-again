@@ -3,6 +3,12 @@
     &-top {
       margin-bottom: 40px;
     }
+
+    &-content {
+      .product-tab {
+        margin-bottom: 40px;
+      }
+    }
   }
 
   @include responsive(D) {

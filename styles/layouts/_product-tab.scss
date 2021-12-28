@@ -1,0 +1,75 @@
+.product-tab {
+  position: sticky;
+  top: $gnb-height-sm + $lnb-heidht-sm;
+  left: 0;
+  z-index: $product-tab-level;
+  width: 100%;
+  height: $product-tab-height-sm;
+  background-color: $white;
+  border-bottom: 1px solid $border;
+
+  &-list {
+    @include flexbox(between);
+    margin: 0 -#{$grid-margin};
+  }
+
+  &-item {
+    flex-grow: 1;
+
+    &.is-active {
+      button {
+        color: $blue;
+        border-bottom-color: $blue;
+      }
+    }
+
+    button {
+      @include flexbox;
+      @include text-style(13, $dark);
+      width: 100%;
+      height: $product-tab-height-sm;
+      font-weight: 700;
+      white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color 250ms ease-in-out;
+
+      &:active {
+        color: $blue;
+      }
+
+      .badge {
+        @include text-style(12, $secondary);
+        margin-left: 4px;
+      }
+    }
+  }
+
+  @include responsive(T) {
+    top: $gnb-height-md + $lnb-heidht-md;
+    height: $product-tab-height-md;
+    background-color: $background;
+    border-bottom: 0;
+
+    &-list {
+      margin: 0;
+    }
+
+    &-item {
+      button {
+        @include text-style(16);
+        height: $product-tab-height-md;
+
+        .badge {
+          @include text-style(16);
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+
+  @include responsive(D) {
+    &-item button:hover {
+      color: $blue;
+    }
+  }
+}
