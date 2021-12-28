@@ -1,0 +1,63 @@
+.product-info-price {
+  $font-size-20: 1.25rem;
+  $font-size-44: 2.75rem;
+
+  .info-origin-price,
+  .discount-rate,
+  .info-sale-price,
+  .info-point {
+    @include flexbox(start);
+  }
+
+  .discount-rate {
+    font-size: $font-size-20;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0%;
+    color: $blue;
+
+    .rate {
+      font-family: tahoma;
+    }
+  }
+
+  .info-sale-price {
+    .price-20 {
+      margin-right: 4px;
+    }
+  }
+
+  .info-point {
+    @include text-style(13, $secondary);
+    padding-top: 12px;
+
+    strong {
+      margin-right: 4px;
+      font-weight: 700;
+      color: $blue;
+    }
+  }
+
+  @include responsive(T) {
+    .info-price-wrapper {
+      @include flexbox(start);
+      align-items: flex-end;
+    }
+
+    .discount-rate {
+      align-items: flex-end;
+      margin-right: 16px;
+
+      .rate {
+        font-size: $font-size-44;
+        line-height: 1;
+      }
+    }
+
+    .info-sale-price {
+      .price-32 {
+        margin-right: 8px;
+      }
+    }
+  }
+}
