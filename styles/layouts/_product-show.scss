@@ -1,0 +1,15 @@
+.product-show {
+  @include responsive(T) {
+    &-top {
+      margin-bottom: 40px;
+    }
+  }
+
+  @include responsive(D) {
+    &-top {
+      .product-info {
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
