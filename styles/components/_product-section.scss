@@ -1,0 +1,26 @@
+.product-section {
+  width: 100%;
+  padding-bottom: 20px;
+
+  &-divider {
+    height: 8px;
+    margin: 0 -#{$grid-margin};
+    background-color: $border;
+
+    &.is-big {
+      height: 24px;
+    }
+  }
+
+  @include responsive(T) {
+    max-width: 692px;
+    padding-bottom: 80px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  @include responsive(D) {
+    max-width: 100%;
+    margin-left: 0;
+  }
+}
