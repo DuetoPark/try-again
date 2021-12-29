@@ -1,0 +1,78 @@
+.user-gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+
+  &-image {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 100%;
+
+    img {
+      @include pos-center;
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-detail {
+    @include pos-center-x;
+    @include flexbox(between);
+    bottom: 0;
+    width: 100%;
+    height: 54px;
+    padding: 0 16px;
+    background-color: rgba($black, 0.4);
+
+    .profile .avatar-32,
+    .order {
+      flex-grow: 0;
+      flex-shrink: 0;
+    }
+
+    .profile .user-name,
+    .order {
+      @include text-style(16, $white);
+    }
+
+    .profile {
+      @include inline-flexbox(start);
+
+      &:active {
+        opacity: 0.5;
+      }
+
+      .avatar-32 {
+        margin-right: 8px;
+      }
+
+      .user-name {
+        max-width: 164px;
+        overflow: hidden;
+        font-weight: 700;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .order {
+      padding-left: 8px;
+    }
+  }
+
+  @include responsive(D) {
+    &-detail {
+      .profile {
+        @include inline-flexbox(start);
+        transition: opacity 250ms ease-in-out;
+
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+}

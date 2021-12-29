@@ -1,0 +1,42 @@
+.user-gallery-controls {
+  $arrow-button-size: 40px;
+
+  @include pos-center-y;
+  @include flexbox(between);
+  width: 100%;
+  height: $arrow-button-size;
+  padding: 0 52px;
+
+  .control-button {
+    @include flexbox;
+    width: $arrow-button-size;
+    height: $arrow-button-size;
+    font-size: 28px;
+    color: $primary;
+    background-color: $white;
+    border-radius: 50%;
+    transition: color 250ms ease-in-out, background-color 250ms ease-in-out;
+
+    &:hover {
+      color: $white;
+      background-color: $blue;
+    }
+
+    &:disabled {
+      visibility: hidden;
+    }
+
+    &.is-prev {
+      transform: rotate(90deg);
+    }
+
+    &.is-next {
+      transform: rotate(-90deg);
+    }
+
+    .ic-chevron {
+      position: relative;
+      top: 1px;
+    }
+  }
+}
