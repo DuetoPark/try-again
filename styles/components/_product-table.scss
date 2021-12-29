@@ -1,0 +1,38 @@
+.product-table {
+  $table-cell-padding: 12px;
+  $table-dt-width-sm: 100px;
+  $table-dt-width-md: 140px + $table-cell-padding;
+
+  @include text-style(12);
+  width: 100%;
+  font-weight: 400;
+
+  &-item {
+    @include flexbox(start, start);
+    padding: 12px;
+    border-bottom: 1px solid $border;
+
+    dt {
+      flex-basis: $table-dt-width-sm;
+      flex-grow: 0;
+      flex-shrink: 0;
+      color: $secondary;
+    }
+
+    dd {
+      flex-grow: 1;
+      color: $primary;
+      word-break: break-all;
+    }
+  }
+
+  @include responsive(T) {
+    &-item {
+      @include text-style(14);
+
+      dt {
+        flex-basis: $table-dt-width-md;
+      }
+    }
+  }
+}
