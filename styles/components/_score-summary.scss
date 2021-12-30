@@ -1,0 +1,27 @@
+.score-summary {
+  @include flexbox;
+  flex-direction: column;
+
+  .score-average {
+    @include text-style(24, $dark);
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
+  .star-rating {
+    @include star-rating(20);
+  }
+
+  @include responsive(T) {
+    flex-direction: row-reverse;
+
+    .score-average {
+      margin-bottom: 0;
+    }
+
+    .star-rating {
+      margin-right: 16px;
+      font-size: 24px;
+    }
+  }
+}
