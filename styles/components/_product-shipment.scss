@@ -1,9 +1,7 @@
 .product-shipment {
   @include mobile-only {
     .product-section-wrapper {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 250ms ease-in-out;
+      display: none;
     }
 
     &.is-open {
@@ -12,8 +10,7 @@
       }
 
       .product-section-wrapper {
-        max-height: 700px;
-        overflow: visible;
+        display: block;
       }
     }
   }
