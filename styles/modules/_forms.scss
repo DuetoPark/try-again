@@ -45,8 +45,8 @@
   }
 
   .form-select {
+    @include truncate;
     padding-right: 40px;
-    text-overflow: ellipsis;
   }
 
   .ic-caret {

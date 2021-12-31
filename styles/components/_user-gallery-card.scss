@@ -50,11 +50,9 @@
       }
 
       .user-name {
+        @include truncate;
         max-width: 164px;
-        overflow: hidden;
         font-weight: 700;
-        text-overflow: ellipsis;
-        white-space: nowrap;
       }
     }
 
