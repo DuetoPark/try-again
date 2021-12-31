@@ -4,14 +4,10 @@
 
     .title {
       @include text-style(13, $dark);
-      display: -webkit-box; // NOTE: line-clamp
+      @include line-clamp(2);
       order: 3;
-      overflow: hidden; // NOTE: line-clamp
       font-weight: 400;
       line-height: 1.2307692308;
-      text-overflow: ellipsis; // NOTE: line-clamp
-      -webkit-box-orient: vertical; // NOTE: line-clamp
-      -webkit-line-clamp: 2; // NOTE: line-clamp
     }
 
     .brand {
