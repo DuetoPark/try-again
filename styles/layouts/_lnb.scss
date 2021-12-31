@@ -21,7 +21,7 @@
     a {
       @include flexbox(start);
       @include text-style(13, $dark);
-      height: $lnb-heidht-sm - 1px;
+      height: $lnb-height-sm - 1px;
       padding: 0 $padding;
       font-weight: 700;
       white-space: nowrap;
@@ -49,7 +49,7 @@
     &-item {
       a {
         @include text-style(14);
-        height: $lnb-heidht-md - 1px;
+        height: $lnb-height-md - 1px;
       }
     }
   }

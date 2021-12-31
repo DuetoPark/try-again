@@ -1,6 +1,6 @@
 .product-tab {
   position: sticky;
-  top: $gnb-height-sm + $lnb-heidht-sm;
+  top: $gnb-height-sm + $lnb-height-sm;
   left: 0;
   z-index: $product-tab-level;
   width: 100%;
@@ -45,7 +45,7 @@
   }
 
   @include responsive(T) {
-    top: $gnb-height-md + $lnb-heidht-md;
+    top: $gnb-height-md + $lnb-height-md;
     height: $product-tab-height-md;
     background-color: $background;
     border-bottom: 0;
