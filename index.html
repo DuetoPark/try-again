@@ -2255,6 +2255,153 @@
                 aria-hidden="true"
               ></div>
             </div>
+
+            <div class="col-lg-4 lg-only">
+              <form class="order-form floating-order-form" action="post">
+                <div class="order-inputs">
+                  <div class="select-group is-active">
+                    <select
+                      class="form-select"
+                      id="order-form-modal-select-1"
+                      required
+                    >
+                      <option value="">사이즈 선택</option>
+                      <option value="1">선택사항 1</option>
+                      <option value="2">선택사항 2</option>
+                      <option value="3">선택사항 3</option>
+                    </select>
+                    <i class="ic-caret" aria-hidden="true"></i>
+                  </div>
+
+                  <div class="select-group">
+                    <select class="form-select" id="order-form-modal-select-2">
+                      <option value="">추가상품 (선택)</option>
+                      <option value="mandarin">
+                        추가상품 - 맛있는 제주 감귤을 직배송 / 제주도 귤 판매
+                        1위 믿고 구매하세요.
+                      </option>
+                    </select>
+                    <i class="ic-caret" aria-hidden="true"></i>
+                  </div>
+                </div>
+
+                <div class="order-checkouts">
+                  <ul class="checkout-list">
+                    <li class="checkout-item">
+                      <!-- NOTE: 필수 선택 사항을 선택한 경우 -->
+                      <div class="checkout-card">
+                        <header class="checkout-header">
+                          <h3 class="title">그린 H0044</h3>
+                        </header>
+
+                        <footer class="checkout-footer">
+                          <div class="checkout-select">
+                            <select id="order-form-modal-checkout-1">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                            </select>
+                            <i class="ic-caret"></i>
+                          </div>
+
+                          <output
+                            class="checkout-output"
+                            for="order-form-modal-checkout-1"
+                          >
+                            <div class="price-16">
+                              <strong class="amount">32,900</strong>
+                              <span class="currency">원</span>
+                            </div>
+                          </output>
+                        </footer>
+                      </div>
+                    </li>
+                    <li class="checkout-item">
+                      <!-- NOTE: 추가상품을 선택한 경우 -->
+                      <div class="checkout-card">
+                        <header class="checkout-header">
+                          <h4 class="title">
+                            추가상품 - 맛있는 제주 감귤을 직배송 / 제주도 귤
+                            판매 1위 믿고 구매하세요.
+                          </h4>
+
+                          <button
+                            class="delete-button"
+                            type="button"
+                            aria-label="해당 상품 삭제하기"
+                          >
+                            <i class="ic-close" aria-hidden="true"></i>
+                          </button>
+                        </header>
+
+                        <footer class="checkout-footer">
+                          <div class="checkout-select">
+                            <select id="order-form-modal-checkout-2">
+                              <option value="1">1</option>
+                              <option value="2">2</option>
+                              <option value="3">3</option>
+                            </select>
+                            <i class="ic-caret"></i>
+                          </div>
+
+                          <output
+                            class="checkout-output"
+                            for="order-form-modal-checkout-2"
+                          >
+                            <div class="price-16">
+                              <strong class="amount">40,000</strong>
+                              <span class="currency">원</span>
+                            </div>
+                          </output>
+                        </footer>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+
+                <dl class="order-summary">
+                  <dt>주문금액</dt>
+                  <dd>
+                    <output
+                      name="price"
+                      for="floating-order-form-select-1 floating-order-form-select-2"
+                    >
+                      <div class="price-20">
+                        <strong class="amount">72,900</strong>
+                        <span class="currency">원</span>
+                      </div>
+                    </output>
+                  </dd>
+                </dl>
+
+                <div class="button-group">
+                  <!-- NOTE: 북마크를 하지 않았을 경우 -->
+                  <button
+                    class="btn-55 bookmark-button"
+                    type="button"
+                    aria-label="북마크에 추가"
+                  >
+                    <i class="ic-bookmark" aria-hidden="true"></i>
+                  </button>
+
+                  <!-- NOTE: 북마크를 하지 않았을 경우 -->
+                  <!-- <button
+                    class="btn-55 bookmark-button is-active"
+                    type="button"
+                    aria-label="북마크에서 삭제"
+                  >
+                    <i class="ic-bookmarkFilled" aria-hidden="true"></i>
+                  </button> -->
+
+                  <button class="btn-55 btn-outlined" type="button">
+                    장바구니
+                  </button>
+                  <button class="btn-55 btn-primary" type="submit">
+                    바로구매
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
       </div>
