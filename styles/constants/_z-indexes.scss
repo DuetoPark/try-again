@@ -1,13 +1,14 @@
-$global-header-level: 10;
 $lnb-level: 20;
 $gnb-level: 30;
 $product-tab-level: 30;
 $search-history-level: 40;
 $order-cta-level: 50;
 
-$overlay-level: 100;
-$sidebar-level: 200;
-$search-modal-level: 200;
-$order-form-modal-level: 200;
-$toast-level: 200;
-$add-to-cart-modal-level: 200;
+$global-header-level: 100;
+
+$overlay-level: 1000;
+$sidebar-level: 2000;
+$search-modal-level: 2000;
+$order-form-modal-level: 2000;
+$toast-level: 2000;
+$add-to-cart-modal-level: 2000;
