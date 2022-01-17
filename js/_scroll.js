@@ -1,20 +1,26 @@
-const productTabs = document.querySelectorAll('.product-tab-item');
+const productTab = document.querySelector('.product-tab-list');
+const globalHeader = document.querySelector('.global-header');
 
-function getHeight(target) {
-  return document.querySelector(target).getBoundingClientRect().height;
+function onScroll(id) {
+  const toBeShown = document.querySelector(`.${id}#${id}`);
+  const top = toBeShown.getBoundingClientRect().top;
+
+  const globalHeaderRect = globalHeader.getBoundingClientRect();
+  const globalHeaderHeight = globalHeaderRect.height;
+
+  const productTabRect = productTab.getBoundingClientRect();
+  const productTabHeight = productTabRect.height;
+
+  const y = top - (globalHeaderHeight + productTabHeight);
+
+  window.scrollBy({ top: y, left: 0, behavior: 'smooth' });
 }
 
-productTabs.forEach((tab) => {
+productTab.addEventListener('click', (e) => {
+  const tab = e.target.parentElement;
   const id = tab.getAttribute('aria-controls');
-  const tabpanel = document.querySelector(`#${id}`);
-  const button = tab.firstElementChild;
 
-  button.addEventListener('click', () => {
-    const globalHeaderHeight = getHeight('.global-header');
-    const productTabHeight = getHeight('.product-tab');
-    const tabpanelTop = tabpanel.getBoundingClientRect().top;
-    const y = tabpanelTop - globalHeaderHeight - productTabHeight;
+  if (!id) return;
 
-    window.scrollBy({ top: y, left: 0, behavior: 'smooth' });
-  });
+  onScroll(id);
 });
