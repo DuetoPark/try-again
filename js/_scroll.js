@@ -1,26 +1,25 @@
 const productTab = document.querySelector('.product-tab-list');
 const globalHeader = document.querySelector('.global-header');
+let id = null;
 
-function onScroll(id) {
+function onScroll() {
   const toBeShown = document.querySelector(`.${id}#${id}`);
   const top = toBeShown.getBoundingClientRect().top;
 
-  const globalHeaderRect = globalHeader.getBoundingClientRect();
-  const globalHeaderHeight = globalHeaderRect.height;
+  const headerRect = globalHeader.getBoundingClientRect();
+  const headerHeight = headerRect.height;
 
-  const productTabRect = productTab.getBoundingClientRect();
-  const productTabHeight = productTabRect.height;
+  const tabRect = productTab.getBoundingClientRect();
+  const tabHeight = tabRect.height;
 
-  const y = top - (globalHeaderHeight + productTabHeight);
+  const y = top - (headerHeight + tabHeight);
 
   window.scrollBy({ top: y, left: 0, behavior: 'smooth' });
 }
 
 productTab.addEventListener('click', (e) => {
   const tab = e.target.parentElement;
-  const id = tab.getAttribute('aria-controls');
+  id = tab.getAttribute('aria-controls');
 
-  if (!id) return;
-
-  onScroll(id);
+  id && onScroll();
 });
