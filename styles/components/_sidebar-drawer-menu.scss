@@ -57,7 +57,6 @@
     i {
       @include pos-center-y;
       color: $primary;
-      pointer-events: none;
 
       &:first-of-type {
         left: 8px;
