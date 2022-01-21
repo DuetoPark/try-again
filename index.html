@@ -61,6 +61,7 @@
                     class="gnb-icon-button is-menu sm-only"
                     type="button"
                     aria-label="메뉴창 열기"
+                    data-id="sidebar"
                   >
                     <i class="ic-menu" aria-hidden="true"></i>
                   </button>
@@ -74,10 +75,11 @@
                         class="form-input"
                         type="text"
                         placeholder="스토어 검색"
+                        data-id="search-history"
                       />
                     </div>
 
-                    <section class="search-history">
+                    <section class="search-history" data-id="search-history">
                       <header class="search-history-header">
                         <h2 class="title">최근 검색어</h2>
                         <button type="button">전체 삭제</button>
@@ -138,6 +140,7 @@
                       class="gnb-icon-button is-search lg-hidden"
                       type="button"
                       aria-label="검색창 열기"
+                      data-id="search-modal"
                     >
                       <i class="ic-search" aria-hidden="true"></i>
                     </button>
@@ -167,11 +170,12 @@
                       <strong class="badge">3</strong>
                     </a>
 
-                    <div class="my-menu sm-hidden">
+                    <div class="my-menu sm-hidden" data-id="my-menu">
                       <button
                         class="my-menu-button"
                         type="button"
                         aria-label="듀트팍님의 마이메뉴 열기"
+                        data-id="my-menu"
                       >
                         <div class="avatar">
                           <img
@@ -578,7 +582,11 @@
                 </dl>
 
                 <div class="button-group">
-                  <button class="btn-55 btn-outlined cart-button" type="button">
+                  <button
+                    class="btn-55 btn-outlined cart-button"
+                    type="button"
+                    data-id="add-to-cart-modal"
+                  >
                     장바구니
                   </button>
                   <button class="btn-55 btn-primary" type="submit">
@@ -2388,6 +2396,7 @@
                     class="btn-55 bookmark-button"
                     type="button"
                     aria-label="북마크에 추가"
+                    data-id="toast"
                   >
                     <i class="ic-bookmark" aria-hidden="true"></i>
                   </button>
@@ -2397,11 +2406,16 @@
                     class="btn-55 bookmark-button is-active"
                     type="button"
                     aria-label="북마크에서 삭제"
+                    data-id="toast"
                   >
                     <i class="ic-bookmarkFilled" aria-hidden="true"></i>
                   </button> -->
 
-                  <button class="btn-55 btn-outlined cart-button" type="button">
+                  <button
+                    class="btn-55 btn-outlined cart-button"
+                    type="button"
+                    data-id="add-to-cart-modal"
+                  >
                     장바구니
                   </button>
                   <button class="btn-55 btn-primary" type="submit">
@@ -2420,6 +2434,7 @@
           class="btn-48 btn-ghost bookmark-button"
           type="button"
           aria-label="스크랩 18302건"
+          data-id="toast"
         >
           <i class="ic-bookmark" aria-hidden="true"></i>
           <strong class="count">18,302</strong>
@@ -2430,12 +2445,17 @@
           class="btn-48 btn-ghost"
           type="button"
           aria-label="스크랩 18303건"
+          data-id="toast"
         >
           <i class="ic-bookmarkFilled" aria-hidden="true"></i>
           <strong class="count">18,303</strong>
         </button> -->
 
-        <button class="btn-primary btn-48 order-button" type="button">
+        <button
+          class="btn-primary btn-48 order-button"
+          type="button"
+          data-id="order-form-modal"
+        >
           구매하기
         </button>
       </div>
@@ -2490,7 +2510,7 @@
       </div>
     </footer>
 
-    <aside class="sidebar sm-only">
+    <aside class="sidebar sm-only" data-id="sidebar">
       <header class="sidebar-header">
         <h1 class="logo">
           <a href="./index.html">
@@ -2730,7 +2750,7 @@
       </footer>
     </aside>
 
-    <aside class="search-modal lg-hidden">
+    <aside class="search-modal lg-hidden" data-id="search-modal">
       <div class="container">
         <div class="row">
           <div class="col-sm-4">
@@ -2747,7 +2767,11 @@
                   />
                 </div>
 
-                <button class="btn-40 btn-ghost close-button" type="button">
+                <button
+                  class="btn-40 btn-ghost close-button"
+                  type="button"
+                  data-id="search-modal"
+                >
                   취소
                 </button>
               </div>
@@ -2811,7 +2835,7 @@
       </div>
     </aside>
 
-    <aside class="order-form-modal lg-hidden">
+    <aside class="order-form-modal lg-hidden" data-id="order-form-modal">
       <h1 class="visually-hidden">주문창</h1>
 
       <form class="order-form" action="post">
@@ -2970,7 +2994,11 @@
         </div>
 
         <div class="button-group">
-          <button class="btn-48 btn-secondary cart-button" type="button">
+          <button
+            class="btn-48 btn-secondary cart-button"
+            type="button"
+            data-id="add-to-cart-modal"
+          >
             장바구니
           </button>
           <button class="btn-48 btn-primary" type="submit">구매하기</button>
@@ -2978,7 +3006,7 @@
       </form>
     </aside>
 
-    <div class="toast">
+    <div class="toast" data-id="toast">
       <ol class="toast-card-list">
         <!-- NOTE: 스크랩했을 경우 -->
         <li class="toast-card-item">
@@ -2989,7 +3017,7 @@
           >
             <header class="toast-card-header">
               <h1 class="title" id="oast-save-title">스크랩했습니다.</h1>
-              <button class="delete-button" type="button" aria-label="창 닫기">
+              <button class="delete-button" type="button" aria-label="닫기">
                 <i class="ic-close" aria-hidden="true"></i>
               </button>
             </header>
@@ -3016,7 +3044,7 @@
               <h1 class="title" id="toast-remove-title">
                 스크랩북에서 삭제했습니다.
               </h1>
-              <button class="delete-button" type="button" aria-label="창 닫기">
+              <button class="delete-button" type="button" aria-label="닫기">
                 <i class="ic-close" aria-hidden="true"></i>
               </button>
             </header>
@@ -3027,6 +3055,7 @@
 
     <div
       class="add-to-cart-modal"
+      data-id="add-to-cart-modal"
       role="dialog"
       aria-labelledby="complete-card-title"
     >
@@ -3045,8 +3074,9 @@
                   >장바구니 보러가기</a
                 >
                 <button
-                  class="btn-48 btn-secondary delete-button"
+                  class="btn-48 btn-secondary close-button"
                   type="button"
+                  data-id="add-to-cart-modal"
                 >
                   확인
                 </button>
@@ -3063,6 +3093,7 @@
     <script src="./js/_carousels.js"></script>
     <script src="./js/_drawers.js"></script>
     <script src="./js/_modals.js"></script>
-    <script src="./js/_scroll.js"></script>
+    <script type="module" src="./js/_scroll.js"></script>
+    <script src="./js/_search-history.js"></script>
   </body>
 </html>
