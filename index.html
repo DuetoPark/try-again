@@ -1778,6 +1778,7 @@
                     class="icon-button sm-only"
                     type="button"
                     aria-label="더보기"
+                    data-id="product-inquiry"
                   >
                     <i class="ic-chevron" aria-hidden="true"></i>
                   </button>
@@ -2026,7 +2027,12 @@
                 <header class="product-section-header sm-only">
                   <h1 class="title">배송/교환/환불</h1>
 
-                  <button class="icon-button" type="button" aria-label="더보기">
+                  <button
+                    class="icon-button"
+                    type="button"
+                    aria-label="더보기"
+                    data-id="product-shipment"
+                  >
                     <i class="ic-chevron" aria-hidden="true"></i>
                   </button>
                 </header>
@@ -2539,11 +2545,12 @@
       <nav class="sidebar-nav">
         <h2 class="visually-hidden">메뉴</h2>
 
-        <div class="drawer-menu is-community">
+        <div class="drawer-menu is-community" id="is-community">
           <button
             class="drawer-menu-button"
             type="button"
             aria-label="커뮤니티 메뉴 열기"
+            data-id="is-community"
           >
             <i class="ic-community" aria-hidden="true"></i>
             커뮤니티
@@ -2588,11 +2595,12 @@
           </div>
         </div>
 
-        <div class="drawer-menu is-store is-open">
+        <div class="drawer-menu is-store is-open" id="is-store">
           <button
             class="drawer-menu-button"
             type="button"
             aria-label="스토어 메뉴 열기"
+            data-id="is-store"
           >
             <i class="ic-store" aria-hidden="true"></i>
             스토어
@@ -2650,11 +2658,12 @@
           </div>
         </div>
 
-        <div class="drawer-menu is-expert">
+        <div class="drawer-menu is-expert" id="is-expert">
           <button
             class="drawer-menu-button"
             type="button"
             aria-label="인테리어시공 메뉴 열기"
+            data-id="is-expert"
           >
             <i class="ic-expert" aria-hidden="true"></i>
             인테리어시공
@@ -3091,9 +3100,9 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
     <script src="./js/_carousels.js"></script>
-    <script src="./js/_drawers.js"></script>
-    <script src="./js/_modals.js"></script>
+    <script type="module" src="./js/_drawers.js"></script>
+    <script type="module" src="./js/_modals.js"></script>
     <script type="module" src="./js/_scroll.js"></script>
-    <script src="./js/_search-history.js"></script>
+    <script type="module" src="./js/_search-history.js"></script>
   </body>
 </html>
