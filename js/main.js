@@ -1,4 +1,5 @@
 import { Modal, openModal } from './_modals.js';
+import Drawer from './_drawers.js';
 
 const ModalName = Object.freeze({
   cart: 'add-to-cart-modal',
@@ -31,3 +32,5 @@ modal.setCallBack((name) => {
 });
 
 overlay.addEventListener('click', modal.close);
+
+const drawer = new Drawer();

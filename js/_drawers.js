@@ -1,24 +1,47 @@
-const wrapperClassName = ['sidebar-nav', 'product-inquiry', 'product-shipment'];
+export default class Drawer {
+  constructor() {
+    this.opener = document.querySelectorAll(`button[data-drawer]`);
 
-function onOpen(event) {
-  const id = event.target.dataset.id;
-  if (!id) return;
+    this.opener.forEach((button) => {
+      button.addEventListener('click', this.onClick);
+    });
+  }
 
-  const drawer = document.querySelector(`#${id}`);
+  setCallBack(callback) {
+    this.callback = callback;
+  }
 
-  sidebarNav(drawer);
+  onClick = (event) => {
+    const target = event.currentTarget;
+    const name = target.dataset.drawer;
+    const menu = document.querySelector(`.${name}`);
+    const drawerMenu = menu.matches('.drawer-menu');
 
-  drawer.classList.add('is-open');
+    if (!drawerMenu) {
+      this.open(menu);
+    } else {
+      const isOpened = menu.matches('.is-open');
+
+      if (isOpened) {
+        this.close(menu);
+      } else {
+        closeAllMenus();
+        this.open(menu);
+      }
+    }
+  };
+
+  open(menu) {
+    menu.classList.add('is-open');
+  }
+
+  close(menu) {
+    menu.classList.remove('is-open');
+  }
+
+  closeAllMenus() {
+    const allMenus = document.querySelectorAll(`.drawer-menu`);
+
+    allMenus.forEach((menu) => this.close(menu));
+  }
 }
-
-function sidebarNav(drawer) {
-  const sidebarMenus = document.querySelectorAll('.drawer-menu');
-  sidebarMenus.forEach((menu) => menu.classList.remove('is-open'));
-}
-
-window.addEventListener('load', () => {
-  wrapperClassName.forEach((className) => {
-    const wrapper = document.querySelector(`.${className}`);
-    wrapper.addEventListener('click', (e) => onOpen(e));
-  });
-});
