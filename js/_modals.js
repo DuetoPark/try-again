@@ -1,62 +1,60 @@
-const overlay = document.querySelector('.overlay');
-let isOpened = new Set();
-let triggers = [];
-let closeTriggers = [];
-const idArr = [
-  'sidebar',
-  'order-form-modal',
-  'add-to-cart-modal',
-  'search-modal',
-  'search-history',
-  'my-menu',
-  'toast',
-];
+export let openModal = new Set();
 
-function triggerBtns(id) {
-  return document.querySelectorAll(`button[data-id="${id}"]`);
-}
+export class Modal {
+  constructor() {
+    this.trigger = [];
+    this.closeBtn = document.querySelectorAll('.close-button');
+    this.closeBtn.forEach((button) => {
+      button.addEventListener('click', this.close);
+    });
+  }
 
-function triggerInputs(id) {
-  return document.querySelectorAll(`input[data-id="${id}"]`);
-}
+  addTrigger(name) {
+    const newTrigger = document.querySelectorAll(
+      `:not(.close-button)[data-modal=${name}]`
+    );
 
-function onClose() {
-  overlay.classList.remove('is-active');
+    this.trigger = [...this.trigger, ...newTrigger];
 
-  isOpened.forEach((modal) => modal.classList.remove('is-active'));
-  isOpened.clear();
-}
+    return this;
+  }
 
-function onOpen(event, id) {
-  const modal = document.querySelector(`.${id}[data-id="${id}"]`);
-  modal.classList.add('is-active');
-  isOpened.add(modal);
+  setClickListener = () => {
+    this.trigger.forEach((trigger) => {
+      trigger.addEventListener('click', this.open);
+    });
 
-  if (event.type === 'click') {
-    overlay.classList.add('is-active');
+    return this;
+  };
+
+  setCallBack(callback) {
+    this.callback = callback;
+  }
+
+  open = (event) => {
+    const target = event.currentTarget;
+    const name = target.dataset.modal;
+    const modal = document.querySelector(`.${name}`);
+
+    modal.classList.add('is-active');
+
+    this.saveOpenModal(modal);
+    this.callback && this.callback(name);
+  };
+
+  saveOpenModal(modal) {
+    openModal.add(modal);
+  }
+
+  close = () => {
+    openModal.forEach((modal) => {
+      modal.classList.remove('is-active');
+    });
+
+    this.clearSetObject();
+  };
+
+  clearSetObject() {
+    openModal.clear();
   }
 }
-
-window.addEventListener('load', () => {
-  const closeBtns = document.querySelectorAll('button.close-button');
-
-  idArr.forEach((id) => {
-    triggers = [...triggers, ...triggerBtns(id), ...triggerInputs(id)];
-  });
-
-  triggers.forEach((trigger) => {
-    const id = trigger.dataset.id;
-    const except = trigger.classList.value.includes('close');
-    if (except) return;
-
-    if (id === 'search-history' || id === 'my-menu') {
-      trigger.addEventListener('focus', (e) => onOpen(e, id));
-      trigger.addEventListener('blur', onClose);
-    } else {
-      trigger.addEventListener('click', (e) => onOpen(e, id));
-    }
-  });
-
-  closeTriggers = [...closeBtns, overlay];
-  closeTriggers.forEach((btn) => btn.addEventListener('click', onClose));
-});
