@@ -1,5 +1,6 @@
 import { Modal, openModal } from './_modals.js';
 import Drawer from './_drawers.js';
+import Scroll from './_scroll.js';
 
 const ModalName = Object.freeze({
   cart: 'add-to-cart-modal',
@@ -34,3 +35,13 @@ modal.setCallBack((name) => {
 overlay.addEventListener('click', modal.close);
 
 const drawer = new Drawer();
+const pageNavigation = new Scroll('product-tab-list');
+pageNavigation.setCallBack((tab) => {
+  const tabItems = pageNavigation.tabItems;
+
+  for (let item of tabItems) {
+    item.classList.remove('is-active');
+  }
+
+  tab.classList.add('is-active');
+});

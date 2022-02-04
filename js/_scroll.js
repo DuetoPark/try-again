@@ -1,32 +1,35 @@
-const tabList = document.querySelector('.product-tab-list');
-const tabs = document.querySelectorAll('.product-tab-item');
-const globalHeader = document.querySelector('.global-header');
-let id = null;
+export default class Scroll {
+  constructor(className) {
+    this.header = document.querySelector('.global-header');
+    this.headerRect = this.header.getBoundingClientRect();
+    this.headerHeight = this.headerRect.height;
 
-function onScroll() {
-  const toBeShown = document.querySelector(`.${id}#${id}`);
-  const top = toBeShown.getBoundingClientRect().top;
+    this.tabList = document.querySelector(`.${className}`);
+    this.tabItems = this.tabList.children;
+    this.tabListRect = this.tabList.getBoundingClientRect();
+    this.tabListHeight = this.tabListRect.height;
+    this.tabList.addEventListener('click', this.onClick);
+  }
 
-  const headerRect = globalHeader.getBoundingClientRect();
-  const headerHeight = headerRect.height;
+  setCallBack(callback) {
+    this.callback = callback;
+  }
 
-  const tabRect = tabList.getBoundingClientRect();
-  const tabHeight = tabRect.height;
+  onClick = (event) => {
+    const selectedTab = event.target.parentElement;
+    const tabPannel = selectedTab.getAttribute('aria-controls');
 
-  const y = top - (headerHeight + tabHeight);
+    this.showTabPannel(tabPannel);
+    this.callback && this.callback(selectedTab);
+  };
 
-  window.scrollBy({ top: y, left: 0, behavior: 'smooth' });
+  showTabPannel(name) {
+    const target = document.querySelector(`.${name}#${name}`);
+    const targetRect = target.getBoundingClientRect();
+    const targetTop = targetRect.top;
+
+    const y = targetTop - (this.headerHeight + this.tabListHeight);
+
+    window.scrollBy({ top: y, left: 0, behavior: 'smooth' });
+  }
 }
-
-function activeTab(selectedTab) {
-  tabs.forEach((tab) => tab.classList.remove('is-active'));
-  selectedTab.classList.add('is-active');
-}
-
-tabList.addEventListener('click', (e) => {
-  const tab = e.target.parentElement;
-  id = tab.getAttribute('aria-controls');
-
-  onScroll();
-  activeTab(tab);
-});
