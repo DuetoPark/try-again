@@ -38,14 +38,14 @@ overlay.addEventListener('click', modal.close);
 const drawer = new Drawer();
 
 const pageNavigation = new Scroll('product-tab-list');
-pageNavigation.setCallBack((tab) => {
+pageNavigation.setClickListenr((selectedTab) => {
   const tabItems = pageNavigation.tabItems;
 
   for (let item of tabItems) {
     item.classList.remove('is-active');
   }
 
-  tab.classList.add('is-active');
+  selectedTab.classList.add('is-active');
 });
 
 const gnbSearh = new History('gnb-search', ITEM_COUNT_LIMIT);

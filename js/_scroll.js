@@ -11,7 +11,7 @@ export default class Scroll {
     this.tabList.addEventListener('click', this.onClick);
   }
 
-  setCallBack(callback) {
+  setClickListenr(callback) {
     this.callback = callback;
   }
 
