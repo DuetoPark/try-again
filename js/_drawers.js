@@ -7,10 +7,6 @@ export default class Drawer {
     });
   }
 
-  setCallBack(callback) {
-    this.callback = callback;
-  }
-
   onClick = (event) => {
     const target = event.currentTarget;
     const name = target.dataset.drawer;
