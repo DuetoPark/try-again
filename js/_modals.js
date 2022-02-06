@@ -19,15 +19,14 @@ export class Modal {
     return this;
   }
 
-  setClickListener = () => {
+  setClickEvent = () => {
     this.trigger.forEach((trigger) => {
       trigger.addEventListener('click', this.open);
     });
-
     return this;
   };
 
-  setCallBack(callback) {
+  setOpenListener(callback) {
     this.callback = callback;
   }
 

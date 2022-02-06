@@ -21,8 +21,8 @@ const modal = new Modal()
   .addTrigger('search-history')
   .addTrigger('order-form-modal')
   .addTrigger('add-to-cart-modal')
-  .setClickListener();
-modal.setCallBack((name) => {
+  .setClickEvent();
+modal.setOpenListener((name) => {
   if (
     name === ModalName.sidebar ||
     name === ModalName.orderForm ||
