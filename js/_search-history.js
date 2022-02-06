@@ -1,5 +1,5 @@
 export default class History {
-  constructor(className) {
+  constructor(className, itemCountLimit) {
     this.section = document.querySelector(`.${className}`);
     this.form = this.section.querySelector('form');
     this.form.addEventListener('submit', this.onSubmit);
@@ -10,6 +10,8 @@ export default class History {
 
     this.clearBtn = this.section.querySelector('.clear-button');
     this.clearBtn.addEventListener('click', this.onClearBtnClick);
+
+    this.itemCountLimit = itemCountLimit;
   }
 
   setCallBack(callback) {
@@ -66,7 +68,16 @@ export default class History {
     const li = this.createItem();
     this.addItem(li);
     this.init();
+    this.keep5Items();
   };
+
+  keep5Items() {
+    const countChildren = this.history.childElementCount;
+    if (countChildren <= this.itemCountLimit) return;
+
+    const lastChild = this.history.lastElementChild;
+    lastChild.remove();
+  }
 
   addItem(elem) {
     const first = this.history.firstElementChild;

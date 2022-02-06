@@ -3,6 +3,8 @@ import Drawer from './_drawers.js';
 import Scroll from './_scroll.js';
 import History from './_search-history.js';
 
+const ITEM_COUNT_LIMIT = 5;
+
 const ModalName = Object.freeze({
   cart: 'add-to-cart-modal',
   toast: 'toast',
@@ -20,7 +22,6 @@ const modal = new Modal()
   .addTrigger('order-form-modal')
   .addTrigger('add-to-cart-modal')
   .setClickListener();
-
 modal.setCallBack((name) => {
   if (
     name === ModalName.sidebar ||
@@ -32,7 +33,6 @@ modal.setCallBack((name) => {
     openModal.add(overlay);
   }
 });
-
 overlay.addEventListener('click', modal.close);
 
 const drawer = new Drawer();
@@ -48,5 +48,5 @@ pageNavigation.setCallBack((tab) => {
   tab.classList.add('is-active');
 });
 
-const gnbSearh = new History('gnb-search');
-const searchModal = new History('search-modal');
+const gnbSearh = new History('gnb-search', ITEM_COUNT_LIMIT);
+const searchModal = new History('search-modal', ITEM_COUNT_LIMIT);
