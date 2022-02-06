@@ -12,6 +12,7 @@ export default class History {
     this.clearBtn.addEventListener('click', this.onClearBtnClick);
 
     this.itemCountLimit = itemCountLimit;
+    this.count = 0;
   }
 
   setCallBack(callback) {
@@ -20,8 +21,14 @@ export default class History {
 
   onClearBtnClick = () => {
     this.clear();
+    this.showPlaceHolder();
     this.init();
+    this.count = 0;
   };
+
+  showPlaceHolder() {
+    this.list.innerHTML = `<p class="placeholder">최근 검색한 내역이 없습니다.</p>`;
+  }
 
   clear() {
     this.list.innerHTML = '';
@@ -32,6 +39,9 @@ export default class History {
     if (!id) return;
 
     this.removeItem(id);
+    --this.count || this.showPlaceHolder();
+
+    this.init();
   };
 
   removeItem(id) {
@@ -45,21 +55,19 @@ export default class History {
     const text = this.input.value;
     if (!text) return;
 
-    if (this.list.firstElementChild?.matches('.placeholder')) {
-      this.clear();
-    }
-
+    this.count || this.clear();
     this.addItem(text);
-    this.keep5Items();
+    this.keep5Items(++this.count);
     this.init();
   };
 
-  keep5Items() {
-    const countChildren = this.list.childElementCount;
-    if (countChildren <= this.itemCountLimit) return;
+  keep5Items(count) {
+    if (count <= this.itemCountLimit) return;
 
     const lastChild = this.list.lastElementChild;
     lastChild.remove();
+
+    this.count = this.itemCountLimit;
   }
 
   addItem(text) {
