@@ -10,9 +10,7 @@ export class Modal {
   }
 
   addTrigger(name) {
-    const newTrigger = document.querySelectorAll(
-      `:not(.close-button)[data-modal=${name}]`
-    );
+    const newTrigger = document.querySelectorAll(`[data-modal=${name}]`);
 
     this.trigger = [...this.trigger, ...newTrigger];
 
@@ -26,8 +24,12 @@ export class Modal {
     return this;
   };
 
-  setOpenListener(callback) {
-    this.callback = callback;
+  setBlurListener(blurListener) {
+    this.blurListener = blurListener;
+  }
+
+  setOpenListener(openListener) {
+    this.openListener = openListener;
   }
 
   open = (event) => {
@@ -38,7 +40,15 @@ export class Modal {
     modal.classList.add('is-active');
 
     this.saveOpenModal(modal);
-    this.callback && this.callback(name);
+    this.openListener && this.openListener(name);
+
+    if (name === 'my-menu') {
+      this.blurListener && this.blurListener('my-menu');
+    }
+
+    if (name === 'search-history') {
+      this.blurListener && this.blurListener('search-history');
+    }
   };
 
   saveOpenModal(modal) {
