@@ -5,6 +5,13 @@ import History from './_search-history.js';
 
 const ITEM_COUNT_LIMIT = 5;
 
+let gnbHistoryState = null;
+
+const State = Object.freeze({
+  close: 'close',
+  open: 'open',
+});
+
 const ModalName = Object.freeze({
   cart: 'add-to-cart-modal',
   toast: 'toast',
@@ -48,5 +55,18 @@ pageNavigation.setClickListenr((selectedTab) => {
   selectedTab.classList.add('is-active');
 });
 
-const gnbSearh = new History('gnb-search', ITEM_COUNT_LIMIT);
+const gnbSearch = new History('gnb-search', ITEM_COUNT_LIMIT);
+gnbSearch.section.addEventListener('mouseover', () => {
+  gnbHistoryState = State.open;
+});
+gnbSearch.section.addEventListener('mouseout', () => {
+  gnbHistoryState = State.close;
+});
+gnbSearch.input.addEventListener('blur', () => {
+  if (gnbHistoryState === State.open) return;
+  modal.close();
+});
+gnbSearch.count || gnbSearch.showPlaceHolder();
+
 const searchModal = new History('search-modal', ITEM_COUNT_LIMIT);
+searchModal.count || searchModal.showPlaceHolder();
