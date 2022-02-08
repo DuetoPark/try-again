@@ -1,31 +1,18 @@
-export default class Drawer {
-  constructor() {
-    this.opener = document.querySelectorAll(`button[data-drawer]`);
+const DrawerType = Object.freeze({
+  sidebarNav: 'sidebar-nav',
+});
 
-    this.opener.forEach((button) => {
-      button.addEventListener('click', this.onClick);
+export default class Drawer {
+  constructor(className) {
+    this.type = className;
+    this.drawerButtonList = document.querySelectorAll(
+      `.${className} button[data-drawer]`
+    );
+
+    this.drawerButtonList.forEach((drawerButton) => {
+      drawerButton.addEventListener('click', this.onClick);
     });
   }
-
-  onClick = (event) => {
-    const target = event.currentTarget;
-    const name = target.dataset.drawer;
-    const menu = document.querySelector(`.${name}`);
-    const drawerMenu = menu.matches('.drawer-menu');
-
-    if (!drawerMenu) {
-      this.open(menu);
-    } else {
-      const isOpened = menu.matches('.is-open');
-
-      if (isOpened) {
-        this.close(menu);
-      } else {
-        closeAllMenus();
-        this.open(menu);
-      }
-    }
-  };
 
   open(menu) {
     menu.classList.add('is-open');
@@ -35,9 +22,37 @@ export default class Drawer {
     menu.classList.remove('is-open');
   }
 
-  closeAllMenus() {
-    const allMenus = document.querySelectorAll(`.drawer-menu`);
+  onClick = (event) => {
+    this.target = event.currentTarget;
 
-    allMenus.forEach((menu) => this.close(menu));
+    if (this.type === DrawerType.sidebarNav) {
+      this.toggleDrawerMenu();
+    } else {
+      this.showFullSection();
+    }
+  };
+
+  showFullSection() {
+    const section = this.target.parentNode.parentNode;
+    this.open(section);
+  }
+
+  toggleDrawerMenu() {
+    const drawerMenu = this.target.parentNode;
+
+    if (drawerMenu.matches('.is-open')) {
+      this.close(drawerMenu);
+    } else {
+      this.closeAllDrawerMenus();
+      this.open(drawerMenu);
+    }
+  }
+
+  closeAllDrawerMenus() {
+    const drawerMenuList = document.querySelectorAll(
+      `.${this.type} .drawer-menu`
+    );
+
+    drawerMenuList.forEach((menu) => this.close(menu));
   }
 }

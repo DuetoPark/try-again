@@ -68,7 +68,9 @@ modal.setBlurListener((name) => {
 
 overlay.addEventListener('click', modal.close);
 
-const drawer = new Drawer();
+const sidebarMenu = new Drawer('sidebar-nav');
+const productInquiry = new Drawer('product-inquiry');
+const productShipment = new Drawer('product-shipment');
 
 const pageNavigation = new Scroll('product-tab-list');
 pageNavigation.setClickListenr((selectedTab) => {
