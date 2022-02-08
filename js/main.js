@@ -4,6 +4,7 @@ import Modal from './_modals.js';
 import Drawer from './_drawers.js';
 import Scroll from './_scroll.js';
 import History from './_search-history.js';
+import * as tab from './_tab.js';
 
 const modal = new Modal();
 
@@ -13,13 +14,8 @@ const productShipment = new Drawer('product-shipment');
 
 const pageNavigation = new Scroll('product-tab-list');
 pageNavigation.setClickListenr((selectedTab) => {
-  const tabItems = pageNavigation.tabItems;
-
-  for (let item of tabItems) {
-    item.classList.remove('is-active');
-  }
-
-  selectedTab.classList.add('is-active');
+  tab.inactiveAll(pageNavigation.tabItems);
+  tab.highlight(selectedTab);
 });
 
 const gnbSearch = new History('gnb-search', ITEM_COUNT_LIMIT);
