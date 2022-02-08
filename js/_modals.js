@@ -1,69 +1,90 @@
-export let openModal = new Set();
+const ModalName = Object.freeze({
+  cart: 'add-to-cart-modal',
+  toast: 'toast',
+  sidebar: 'sidebar',
+  orderForm: 'order-form-modal',
+  myMenu: 'my-menu',
+  searchHistory: 'search-history',
+});
 
-export class Modal {
+let openModal = new Set();
+let modalFlag = null;
+
+const searchHistory = document.querySelector('.search-history');
+searchHistory.addEventListener('mouseover', () => {
+  modalFlag = false;
+});
+searchHistory.addEventListener('mouseout', () => {
+  modalFlag = true;
+});
+
+export default class Modal {
   constructor() {
-    this.trigger = [];
+    this.trigger = document.querySelectorAll('[data-modal]');
+    this.trigger.forEach((trigger) => {
+      const modalName = trigger.dataset.modal;
+
+      if (modalName === ModalName.myMenu) {
+        trigger.addEventListener('blur', this.onClose);
+      }
+
+      if (modalName === ModalName.searchHistory) {
+        trigger.addEventListener('blur', () => {
+          if (!modalFlag) return;
+          this.onClose();
+        });
+      }
+
+      trigger.addEventListener('click', this.onOpen);
+    });
+
     this.closeBtn = document.querySelectorAll('.close-button');
     this.closeBtn.forEach((button) => {
-      button.addEventListener('click', this.close);
+      button.addEventListener('click', this.onClose);
     });
+
+    this.overlay = document.querySelector('.overlay');
+    this.overlay.addEventListener('click', this.onClose);
   }
 
-  addTrigger(name) {
-    const newTrigger = document.querySelectorAll(`[data-modal=${name}]`);
-
-    this.trigger = [...this.trigger, ...newTrigger];
-
-    return this;
-  }
-
-  setClickEvent = () => {
-    this.trigger.forEach((trigger) => {
-      trigger.addEventListener('click', this.open);
-    });
-    return this;
-  };
-
-  setBlurListener(blurListener) {
-    this.blurListener = blurListener;
-  }
-
-  setOpenListener(openListener) {
-    this.openListener = openListener;
-  }
-
-  open = (event) => {
-    const target = event.currentTarget;
-    const name = target.dataset.modal;
-    const modal = document.querySelector(`.${name}`);
-
+  open(modal) {
     modal.classList.add('is-active');
+  }
 
-    this.saveOpenModal(modal);
-    this.openListener && this.openListener(name);
-
-    if (name === 'my-menu') {
-      this.blurListener && this.blurListener('my-menu');
-    }
-
-    if (name === 'search-history') {
-      this.blurListener && this.blurListener('search-history');
-    }
-  };
+  close(modal) {
+    modal.classList.remove('is-active');
+  }
 
   saveOpenModal(modal) {
     openModal.add(modal);
   }
 
-  close = () => {
-    openModal.forEach((modal) => {
-      modal.classList.remove('is-active');
-    });
-
-    this.clearSetObject();
-  };
-
   clearSetObject() {
     openModal.clear();
   }
+
+  onOpen = (event) => {
+    const target = event.currentTarget;
+    const modalName = target.dataset.modal;
+
+    const modal = document.querySelector(`.${modalName}`);
+
+    this.open(modal);
+    this.saveOpenModal(modal);
+
+    if (
+      modalName === ModalName.sidebar ||
+      modalName === ModalName.orderForm ||
+      modalName === ModalName.cart ||
+      modalName === ModalName.toast
+    ) {
+      this.open(this.overlay);
+      this.saveOpenModal(this.overlay);
+    }
+  };
+
+  onClose = () => {
+    openModal.forEach((modal) => this.close(modal));
+    this.clearSetObject();
+  };
 }
