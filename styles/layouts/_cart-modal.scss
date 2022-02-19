@@ -1,0 +1,52 @@
+.cart-modal {
+  @include pos-center(fixed);
+  z-index: $cart-modal-level;
+  width: calc(100vw - #{$grid-margin * 2});
+  max-width: 360px;
+  padding: 40px 24px;
+  text-align: center;
+  background-color: $white;
+  border-radius: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate3d(-50%, -55%, 0);
+  box-shadow: $popup-shadow;
+  transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out,
+    transform 250ms ease-in-out;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    transform: translate3d(-50%, -50%, 0);
+  }
+
+  .cart-title {
+    @include text-style(16, $dark);
+    margin-bottom: 24px;
+  }
+
+  a,
+  button {
+    width: 100%;
+  }
+
+  a {
+    margin-bottom: 8px;
+  }
+
+  @include responsive(D) {
+    padding-right: 32px;
+    padding-left: 32px;
+
+    .cart-title {
+      @include text-style(18);
+      margin-bottom: 16px;
+    }
+
+    a,
+    button {
+      @include text-style(18);
+      height: 55px;
+    }
+  }
+}

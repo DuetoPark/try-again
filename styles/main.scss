@@ -3,6 +3,7 @@
 @import './constants/breakpoints';
 @import './constants/z-indexes';
 @import './constants/dimensions';
+@import './constants/boxshadows';
 
 @import './base/fonts';
 @import './base/normalize';
@@ -67,7 +68,7 @@
 @import './layouts/order-form-modal';
 @import './layouts/order-cta';
 @import './layouts/toast';
-@import './layouts/add-to-cart-modal';
+@import './layouts/cart-modal';
 @import './layouts/product-show';
 @import './layouts/product-tab';
 @import './layouts/floating-order-form';
