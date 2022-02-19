@@ -9,10 +9,25 @@
   padding-right: 12px;
   padding-left: 36px;
   background-color: $white;
+  opacity: 0;
+  visibility: hidden;
   box-shadow: $popup-reserved-shadow;
+  transition: all 250ms ease-in-out;
+
+  &.is-active {
+    opacity: 1;
+    visibility: visible;
+    animation-duration: 300ms;
+    animation-name: come_MOBILE;
+    animation-timing-function: ease-in-out;
+  }
 
   &.is-hide {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    animation-duration: 300ms;
+    animation-name: exit_MOBILE;
+    animation-timing-function: ease-in-out;
   }
 
   .title {
@@ -20,7 +35,7 @@
     font-weight: 400;
   }
 
-  .delete-button {
+  .close-button {
     @include pos-center-y;
     left: 0;
     display: block;
@@ -58,11 +73,19 @@
     transform: translateX(-50%);
     box-shadow: $popup-shadow;
 
+    &.is-active {
+      animation-name: come_DESKTOP;
+    }
+
+    &.is-hide {
+      animation-name: exit_DESKTOP;
+    }
+
     .title {
       @include text-style(16);
     }
 
-    .delete-button {
+    .close-button {
       left: 10px;
 
       &:hover {
@@ -85,5 +108,45 @@
         width: 99px;
       }
     }
+  }
+}
+
+@keyframes come_MOBILE {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes exit_MOBILE {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes come_DESKTOP {
+  0% {
+    transform: translate(-50%, 100%);
+  }
+
+  100% {
+    transform: translate(-50%, 0);
+  }
+}
+
+@keyframes exit_DESKTOP {
+  0% {
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    transform: translate(-50%, -100%);
   }
 }
