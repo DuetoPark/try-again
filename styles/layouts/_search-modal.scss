@@ -1,4 +1,8 @@
 .search-modal {
+  $search-modal-header: 64px;
+  $search-history-header: 36px;
+  $header-height: $search-modal-header + $search-history-header;
+
   position: fixed;
   top: 0;
   left: 0;
@@ -32,5 +36,9 @@
       flex-shrink: 0;
       width: 56px;
     }
+  }
+
+  .search-history-list {
+    height: calc(100vh - #{$header-height});
   }
 }
