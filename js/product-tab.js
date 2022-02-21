@@ -120,8 +120,8 @@ function updateActiveTabOnScroll() {
 productTabList.addEventListener('click', toggleTabButton)
 productTabList.addEventListener('click', scrollToTabPanel)
 window.addEventListener('load', detectTabPanelPosition)
-window.addEventListener('resize', detectTabPanelPosition)
-window.addEventListener('scroll', updateActiveTabOnScroll)
+window.addEventListener('resize', _.throttle(detectTabPanelPosition, 1000))
+window.addEventListener('scroll', _.throttle(updateActiveTabOnScroll, 300))
 
 const sectionShowButtonList = [
   document.querySelector('.product-spec .btn-primary'),
