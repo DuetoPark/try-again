@@ -872,6 +872,8 @@ i {
       display: block; }
     .gnb-search .search-history-header {
       margin: 0 8px; }
+    .gnb-search .search-history .search-history-list {
+      max-height: 220px; }
 
 .my-menu {
   position: relative; }
@@ -1039,6 +1041,11 @@ i {
     padding: 8px;
     margin-right: -8px; }
 
+.search-history-list {
+  overflow: scroll; }
+  .search-history-list::-webkit-scrollbar {
+    display: none !important; }
+
 .search-history-item {
   position: relative;
   border-radius: 2px;
@@ -1046,16 +1053,15 @@ i {
   .search-history-item:hover {
     background-color: #f7f8fa; }
   .search-history-item .word-button {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     font-size: 1rem;
     line-height: 1.5rem;
     letter-spacing: -0.01em;
     color: #3f4150;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     width: 100%;
-    height: 44px;
-    padding: 0 8px;
+    padding: 10px 8px;
     padding-right: 32px;
     text-align: left; }
   .search-history-item .delete-button {
@@ -2676,6 +2682,8 @@ i {
       flex-grow: 0;
       flex-shrink: 0;
       width: 56px; }
+  .search-modal .search-history-list {
+    max-height: calc(100vh - 100px); }
 
 .order-form-modal {
   position: fixed;
@@ -2739,178 +2747,165 @@ i {
   .order-cta .btn-primary {
     flex-grow: 1; }
 
-.toast {
+.clipping-toast {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
   bottom: 0;
+  left: 0;
   z-index: 2000;
-  display: none;
-  width: 100vw; }
-  .toast.is-active {
-    display: block; }
-  .toast .toast-card-item {
-    margin-bottom: 8px;
-    animation-duration: 250ms;
-    animation-name: fade-in;
+  width: 100vw;
+  height: 56px;
+  padding-right: 12px;
+  padding-left: 36px;
+  background-color: #fff;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 -4px 20px rgba(63, 65, 80, 0.3);
+  transition: all 250ms ease-in-out; }
+  .clipping-toast.is-active {
+    opacity: 1;
+    visibility: visible;
+    animation-duration: 300ms;
+    animation-name: come_MOBILE;
     animation-timing-function: ease-in-out; }
-    .toast .toast-card-item:last-child {
-      margin-bottom: 0; }
-    .toast .toast-card-item.is-pushed {
-      animation-name: pushed; }
-    .toast .toast-card-item.is-removed {
-      animation-name: fade-out; }
-  .toast .toast-card {
+  .clipping-toast.is-hide {
+    opacity: 0;
+    visibility: hidden;
+    animation-duration: 300ms;
+    animation-name: exit_MOBILE;
+    animation-timing-function: ease-in-out; }
+  .clipping-toast .title {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+    letter-spacing: -0.01em;
+    color: #3f4150;
+    font-weight: 400; }
+  .clipping-toast .close-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    display: block;
+    width: 36px;
+    height: 36px;
+    color: #b2b3b9;
+    transition: color 250ms ease-in-out; }
+    .clipping-toast .close-button:active {
+      color: #8c8d96; }
+  .clipping-toast .button-group {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    padding: 12px;
-    padding-left: 0 !important;
-    background-color: #fff;
-    box-shadow: 0 -4px 20px rgba(63, 65, 80, 0.3); }
-    .toast .toast-card-header {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      flex-direction: row-reverse;
-      flex-grow: 1; }
-      .toast .toast-card-header .title {
-        font-size: 0.8125rem;
-        line-height: 1.25rem;
-        letter-spacing: -0.01em;
-        color: #3f4150;
-        font-weight: 400; }
-      .toast .toast-card-header .delete-button {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-grow: 0;
-        flex-shrink: 0;
-        width: 36px;
-        height: 36px;
-        font-size: 20px;
-        color: #b2b3b9;
-        transition: color 250ms ease-in-out; }
-        .toast .toast-card-header .delete-button:hover {
-          color: #3f4150; }
-    .toast .toast-card-footer {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      flex-wrap: wrap; }
-      .toast .toast-card-footer a,
-      .toast .toast-card-footer button {
-        font-size: 0.8125rem;
-        line-height: 1.25rem;
-        letter-spacing: -0.01em;
-        white-space: nowrap; }
-      .toast .toast-card-footer .btn-outlined {
-        margin-right: 4px; }
+    justify-content: flex-end; }
+    .clipping-toast .button-group a,
+    .clipping-toast .button-group button {
+      font-size: 0.8125rem;
+      line-height: 1.25rem;
+      letter-spacing: -0.01em; }
+    .clipping-toast .button-group a {
+      margin-right: 4px; }
   @media screen and (min-width: 1200px) {
-    .toast {
+    .clipping-toast {
       bottom: 40px;
-      width: 480px; }
-      .toast .toast-card {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 20px rgba(63, 65, 80, 0.3); }
-        .toast .toast-card-header .title {
-          font-size: 1rem;
-          line-height: 1.5rem;
-          letter-spacing: -0.01em; }
-        .toast .toast-card-header .delete-button {
-          width: 40px;
-          height: 40px;
-          margin: 0 8px;
-          font-size: 24px; }
-        .toast .toast-card-footer a,
-        .toast .toast-card-footer button {
-          font-size: 0.875rem;
-          line-height: 1.5rem;
-          letter-spacing: -0.01em; }
-        .toast .toast-card-footer .btn-outlined {
-          width: 112px;
-          margin-right: 8px; }
-        .toast .toast-card-footer .btn-primary {
-          width: 100px; } }
+      left: 50%;
+      width: 480px;
+      height: 80px;
+      padding-right: 20px;
+      padding-left: 56px;
+      border-radius: 8px;
+      transform: translateX(-50%);
+      box-shadow: 0 4px 20px rgba(63, 65, 80, 0.3); }
+      .clipping-toast.is-active {
+        animation-name: come_DESKTOP; }
+      .clipping-toast.is-hide {
+        animation-name: exit_DESKTOP; }
+      .clipping-toast .title {
+        font-size: 1rem;
+        line-height: 1.5rem;
+        letter-spacing: -0.01em; }
+      .clipping-toast .close-button {
+        left: 10px; }
+        .clipping-toast .close-button:hover {
+          color: #8c8d96; }
+      .clipping-toast .button-group a,
+      .clipping-toast .button-group button {
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+        letter-spacing: -0.01em; }
+      .clipping-toast .button-group a {
+        width: 112px;
+        margin-right: 8px; }
+      .clipping-toast .button-group button {
+        width: 99px; } }
 
-@keyframes fade-in {
+@keyframes come_MOBILE {
   0% {
-    opacity: 0;
-    transform: translate3d(0, 100%, 0); }
+    transform: translateY(100%); }
   100% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0); } }
+    transform: translateY(0); } }
 
-@keyframes pushed {
+@keyframes exit_MOBILE {
   0% {
-    transform: translate3d(0, 100%, 0); }
+    transform: translateY(0); }
   100% {
-    transform: translate3d(0, 0, 0); } }
+    transform: translateY(-100%); } }
 
-@keyframes fade-out {
+@keyframes come_DESKTOP {
   0% {
-    opacity: 1;
-    transform: translate3d(0, 0, 0); }
+    transform: translate(-50%, 100%); }
   100% {
-    opacity: 0;
-    transform: translate3d(0, -100%, 0); } }
+    transform: translate(-50%, 0); } }
 
-.add-to-cart-modal {
+@keyframes exit_DESKTOP {
+  0% {
+    transform: translate(-50%, 0); }
+  100% {
+    transform: translate(-50%, -100%); } }
+
+.cart-modal {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 2000;
-  width: 100vw;
+  width: calc(100vw - 30px);
+  max-width: 360px;
+  padding: 40px 24px;
+  text-align: center;
+  background-color: #fff;
+  border-radius: 8px;
   opacity: 0;
   visibility: hidden;
   transform: translate3d(-50%, -55%, 0);
+  box-shadow: 0 4px 20px rgba(63, 65, 80, 0.3);
   transition: opacity 250ms ease-in-out, visibility 250ms ease-in-out, transform 250ms ease-in-out; }
-  .add-to-cart-modal.is-active {
+  .cart-modal.is-active {
     opacity: 1;
     visibility: visible;
     transform: translate3d(-50%, -50%, 0); }
-  .add-to-cart-modal .row {
-    justify-content: center; }
-  .add-to-cart-modal .complete-card {
-    padding: 40px 24px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(63, 65, 80, 0.3); }
-    .add-to-cart-modal .complete-card-header {
-      margin-bottom: 24px; }
-      .add-to-cart-modal .complete-card-header .title {
-        font-size: 1rem;
-        line-height: 1.5rem;
-        letter-spacing: -0.01em;
-        color: #191a20;
-        text-align: center; }
-    .add-to-cart-modal .complete-card-footer {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center; }
-      .add-to-cart-modal .complete-card-footer a,
-      .add-to-cart-modal .complete-card-footer button {
-        width: 100%; }
-      .add-to-cart-modal .complete-card-footer .btn-primary {
-        margin-bottom: 8px; }
+  .cart-modal .cart-title {
+    font-size: 1rem;
+    line-height: 1.5rem;
+    letter-spacing: -0.01em;
+    color: #191a20;
+    margin-bottom: 24px; }
+  .cart-modal a,
+  .cart-modal button {
+    width: 100%; }
+  .cart-modal a {
+    margin-bottom: 8px; }
   @media screen and (min-width: 1200px) {
-    .add-to-cart-modal .complete-card {
-      padding: 40px 32px; }
-      .add-to-cart-modal .complete-card-header {
+    .cart-modal {
+      padding-right: 32px;
+      padding-left: 32px; }
+      .cart-modal .cart-title {
+        font-size: 1.125rem;
+        line-height: 1.75rem;
+        letter-spacing: -0.02em;
         margin-bottom: 16px; }
-        .add-to-cart-modal .complete-card-header .title {
-          font-size: 1.125rem;
-          line-height: 1.75rem;
-          letter-spacing: -0.02em; }
-      .add-to-cart-modal .complete-card-footer a,
-      .add-to-cart-modal .complete-card-footer button {
+      .cart-modal a,
+      .cart-modal button {
         font-size: 1.125rem;
         line-height: 1.75rem;
         letter-spacing: -0.02em;
@@ -3018,19 +3013,19 @@ i {
       display: none !important; }
   .floating-order-form .button-group {
     margin: 0 -4px; }
-    .floating-order-form .button-group .bookmark-button {
+    .floating-order-form .button-group .clipping-button {
       flex-grow: 0;
       flex-shrink: 0;
       width: 55px;
       border: 1px solid #e0e2e7;
       border-radius: 5px;
       transition: border-color 250ms ease-in-out, background-color 250ms ease-in-out; }
-      .floating-order-form .button-group .bookmark-button:hover, .floating-order-form .button-group .bookmark-button.is-active {
+      .floating-order-form .button-group .clipping-button:hover, .floating-order-form .button-group .clipping-button.is-active {
         background-color: #f7f8fa;
         border-color: #3da5f5; }
-        .floating-order-form .button-group .bookmark-button:hover i, .floating-order-form .button-group .bookmark-button.is-active i {
+        .floating-order-form .button-group .clipping-button:hover i, .floating-order-form .button-group .clipping-button.is-active i {
           color: #3da5f5; }
-      .floating-order-form .button-group .bookmark-button i {
+      .floating-order-form .button-group .clipping-button i {
         font-size: 32px;
         color: #3f4150;
         transition: color 250ms ease-in-out; }
