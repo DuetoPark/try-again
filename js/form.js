@@ -1,14 +1,11 @@
-const orderFormList = document.querySelectorAll('.order-form')
-const orderFormCheckoutList = document.querySelectorAll('.order-checkouts')
-
-const outputAmountList = document.querySelectorAll(
-  'output[name="price"] .amount'
-)
+const formList = document.querySelectorAll('.order-form')
+const formAmountList = document.querySelectorAll('.order-summary .amount')
+export const formCheckoutList = document.querySelectorAll('.order-checkouts')
 
 export const PRICE_PRODUCT = 36900
 export const PRICE_EXTRA = 40000
 
-export let selectedOption = new Set()
+export let currentOption = new Set()
 export let generatedItem = {
   green: [],
   white: [],
@@ -25,16 +22,16 @@ function addCheckoutItem(event) {
   const select = event.target
   const value = select.value
 
-  const formCheckout = this.querySelector('.order-checkouts')
-  if (formCheckout.contains(event.target)) return
+  const innerCheckoutList = this.querySelector('.order-checkouts')
+  if (innerCheckoutList.contains(event.target)) return
 
-  if (selectedOption.has(value)) {
+  if (currentOption.has(value)) {
     alert('이미 선택한 옵션입니다.')
     select.options[0].selected = true
     return
   }
 
-  selectedOption.add(value)
+  currentOption.add(value)
   userSelect.set(value, userSelect.get(value) + 1)
 
   const optionText = select.options[select.selectedIndex].text
@@ -43,8 +40,9 @@ function addCheckoutItem(event) {
 
   count += 1
 
-  orderFormCheckoutList.forEach((checkout) => {
-    const checkoutList = checkout.querySelector('ul')
+  formCheckoutList.forEach((checkout) => {
+    const checkoutList = checkout.querySelector('.checkout-list')
+
     const li = document.createElement('li')
     li.classList.add('checkout-item')
     li.innerHTML = `
@@ -102,11 +100,11 @@ export function updateTotalAmount() {
     total = total + price
   })
 
-  outputAmountList.forEach((output) => {
-    output.textContent = total.toLocaleString()
+  formAmountList.forEach((amount) => {
+    amount.textContent = total.toLocaleString()
   })
 }
 
-orderFormList.forEach((form) => {
+formList.forEach((form) => {
   form.addEventListener('change', addCheckoutItem)
 })
