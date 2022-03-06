@@ -6,12 +6,19 @@
 ### [개발배경](https://github.com/DuetoPark/try-again/wiki/%EA%B0%9C%EB%B0%9C-%EB%B0%B0%EA%B2%BD)
 ### [Wiki](https://github.com/DuetoPark/try-again/wiki)
 ### [오늘의집 클론 Github](https://github.com/DuetoPark/tomorrow-house)
+https://user-images.githubusercontent.com/69448900/156908897-6fdd1e98-dbbe-4130-8c5a-47e09057b351.mov
+
+https://user-images.githubusercontent.com/69448900/156909013-c65ed13f-3476-4573-8c21-874782cd4f2f.mov
 
 ## 📌 소개
 - **자바스크립트**에 집중한 페이지입니다.
 - 토글되는 버튼 구현
 - 동시에 모든 Form이 업데이트되는 change 이벤트 구현
 - 스크롤 위치에 따라 특정 탭이 활성화되는 메뉴를 구현
+
+
+
+
 
 ## 🔖 특징
 - 반응형 디자인
