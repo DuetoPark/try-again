@@ -7,7 +7,19 @@
 ### [Wiki](https://github.com/DuetoPark/try-again/wiki)
 ### [오늘의집 클론 Github](https://github.com/DuetoPark/tomorrow-house)
 
-## ♻️ Javascript 구현
+## 📌 소개
+- **자바스크립트**에 집중한 페이지입니다.
+- 토글되는 버튼 구현
+- 동시에 모든 Form이 업데이트되는 change 이벤트 구현
+- 스크롤 위치에 따라 특정 탭이 활성화되는 메뉴를 구현
+
+## 🔖 특징
+- 반응형 디자인
+- lodash 라이브러리로 scroll 이벤트의 간헐적 실행
+- 자료구조(Map 객체, Set 객체, 일반 객체)로 Form 데이터 관리
+- `element.getBoundingClientRect` + `window.scrollY`( 뷰포트 위치 + 스크롤한 양 )으로 요소의 위치를 찾음
+
+## 🔥 Javascript 구현
 요약하자면
 1. Class로 구현 👉 사용 미숙으로 장렬히 전사
 2. 일반함수로 구현 👉 가독성 장렬히 전사
@@ -18,7 +30,7 @@
 클래스 내부의 메소드를 바인딩하기위해, 이전에는 bind메소드를 사용했지만, **화살표 함수를 선언하는 방식으로 수정**  
 **콜백함수**를 통해 원하는 동작을 외부에서 클래스 내부로 전달
 
-1. 개선 전
+- 개선 전
    ```javascript
    class Modal {
      constructor(target, trigger, closeButton) {
@@ -47,7 +59,7 @@
    sidebar.addEvent()
    ```
 
-2. 개선 후 클래스
+- 개선 후
    ```javascript
    // main.js
    import * as tab from './_tab.js'
@@ -91,3 +103,7 @@
 ### 라이브러리
 - tiny-slider.js
 - lodash.js
+
+## ♻️ 아쉬운 점
+- 클래스를 구현하여 중복되는 코드를 줄여야 합니다.
+- React를 사용하여 중복되는 UI를 관리해야 합니다.
